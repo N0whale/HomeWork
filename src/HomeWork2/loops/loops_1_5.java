@@ -13,9 +13,12 @@ public class loops_1_5 {
 
     }
 
+    /**
+     * @param n
+     */
     private static void printMultNumber(int n) {
-        for(int i = 1; i<=10;i++) {
-            System.out.printf("%2d x %2d = %2d | %2d x %2d = %2d | %2d x %2d = %2d | %2d x %2d = %2d\n",n,i,i*n,n+1,i,i*(n+1),n+2,i,i*(n+2),n+3,i,i*(n+3));
+        for (int i = 1; i <= 10; i++) {
+            System.out.printf("%2d x %2d = %2d | %2d x %2d = %2d | %2d x %2d = %2d | %2d x %2d = %2d\n", n, i, i * n, n + 1, i, i * (n + 1), n + 2, i, i * (n + 2), n + 3, i, i * (n + 3));
         }
     }
 }
