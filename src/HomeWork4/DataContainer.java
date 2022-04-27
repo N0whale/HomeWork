@@ -71,8 +71,8 @@ public class DataContainer<T> {
         }
     }
 
-    public T[] getItems(T item){
-       return this.data;             //TODO
+    public T[] getItems(){
+        return this.data;
     }
 
     /**
