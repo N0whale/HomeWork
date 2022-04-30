@@ -5,28 +5,23 @@ import java.util.Scanner;
 
 public class SleepIf {
     public static void main(String[] args) {
+        boolean weekday = true;
+        boolean vacation = false;
 
-
-        Scanner Sleep = new Scanner(System.in);
-
-        System.out.println("Сегодня рабочий день? (true/false)");
-
-        boolean weekday = Sleep.nextBoolean();
-
-        System.out.println("Сегодня отпуск? (true/false)");
-
-        boolean vacation = Sleep.nextBoolean();
-
-        if (!weekday || vacation) {
-            System.out.println(true);
-            System.out.println("можем спать дальше");
-        } else {
-            System.out.println(false);
-            System.out.println("Пора идти на работу");
-        }
-
+        System.out.println(sleepDecision(sleepIn(weekday,vacation)));
 
     }
+
+    public static boolean sleepIn(boolean weekday, boolean vacation) {
+        return !weekday || vacation;
+    }
+
+    public static String sleepDecision(boolean a){
+        if (a){
+            return "Можем спать дальше";
+        } else return "Пора на работу";
+    }
+
 }
 
 

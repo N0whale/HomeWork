@@ -15,21 +15,20 @@ public class DataContainer<T> {
 
     /**
      * Переопределенный метод toString
+     *
      * @return
      */
     @Override
     public String toString() {
         List<T> dataArray = new ArrayList<>();
         for (int i = 0; i < data.length; i++) {
-            if (data[i] != null){
+            if (data[i] != null) {
                 dataArray.add(data[i]);
             }
         }
         return "DataContainer= "
                 + dataArray;
     }
-
-
 
 
     public int add(T item) {
@@ -43,10 +42,8 @@ public class DataContainer<T> {
             }
         }
         this.data = createNewArray(item);
-        return data.length;
+        return data.length - 1;
     }
-
-
 
 
     private T[] createNewArray(T item) {
@@ -71,12 +68,13 @@ public class DataContainer<T> {
         }
     }
 
-    public T[] getItems(){
+    public T[] getItems() {
         return this.data;
     }
 
     /**
      * метод удаления поля по индексу
+     *
      * @param index
      * @return
      */
@@ -96,6 +94,7 @@ public class DataContainer<T> {
 
     /**
      * метод удаления поля по значению
+     *
      * @param item
      * @return
      */
@@ -108,7 +107,18 @@ public class DataContainer<T> {
         return false;
     }
 
-    public void sort (Comparator<T> comparator){ //TODO
+    public void sort(Comparator<T> comparator) {
+        int[] arr = new int[10];
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] > arr[j]) {
+                    int tmp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = tmp;
+                }
+
+            }
+        }
 
     }
 

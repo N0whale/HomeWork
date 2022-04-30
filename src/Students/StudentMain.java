@@ -60,18 +60,16 @@ public class StudentMain {
      * @throws IOException
      */
     public static void fillStudents(List a) throws IOException {
+        ThreadLocalRandom rnd = ThreadLocalRandom.current();
         for (int i = 0; i < 10000; i++) {
-            int age = ThreadLocalRandom.current().nextInt(7, 18);
-            double grade = ThreadLocalRandom.current().nextDouble(0.0, 10.01);
-            grade = roundDouble(grade, 1);
-            boolean isOlympic = ThreadLocalRandom.current().nextBoolean();
             Student student = new Student();
             student.setNumber(i + 1);
-            String name = randomStudentName();
-            student.setName(name);
-            student.setAge(age);
+            student.setName(randomStudentName());
+            student.setAge(rnd.nextInt(7,18));
+            double grade = rnd.nextDouble(10);
+            grade = roundDouble(grade, 1);
             student.setGrade(grade);
-            student.setOlymic(isOlympic);
+            student.setOlymic(rnd.nextBoolean());
             a.add(student);
         }
 
@@ -144,7 +142,6 @@ public class StudentMain {
      * @param a изначальная коллекиця
      */
     public static void top10LastNames(List<Student> a) {
-
         if (a.size() >= 10) {
             for (int i = a.size() - 11; i >= 0; i--) {
                 a.remove(i);
