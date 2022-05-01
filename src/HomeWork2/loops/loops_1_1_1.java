@@ -2,27 +2,28 @@ package HomeWork2.loops;
 
 public class loops_1_1_1 {
 
-    public static void main(String args[]) {
-
-
-        Long x = Long.parseLong(args[0]);
-
-        if (x < 0 | x > 20) {
-            System.out.println("Надо ввести целое число больше нуля и меньше 21");
-        } else {
-            long a = 1;
-            for (int i = 1; i <= x; i++) {
-                a *= i;
-
-                String otvet = String.format("%d*", i);
-                String otvet1 = String.format("%d", i);
-
-                if (i < x) {
-                    System.out.print(otvet);
-                } else
-                    System.out.print(otvet1);
-            }
-            System.out.println(" = " + a);
+    public static void main(String[] args) {
+       long x = 10;
+        System.out.println(factorial(x));
         }
+
+    public static String factorial(long a){
+        StringBuilder result = new StringBuilder();
+        if (a <= 0){
+            result = new StringBuilder("Введите целое положительное число");
+        }
+        long b = 1;
+        for (int i = 1; i <= a ; i++) {
+            b *= i;
+            if (b < 0){
+                result = new StringBuilder("Произошло переполнение");
+                break;
+            }
+            if (i < a) {
+                result.append(i).append(" * ");
+            } else
+                result.append(i).append(" = ").append(b);
+            }
+        return String.valueOf(result);
     }
 }

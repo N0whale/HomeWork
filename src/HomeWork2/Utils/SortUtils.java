@@ -13,7 +13,6 @@ public class SortUtils {
             for (int i = 0; i < array.length - 1; i++) {
                 if (array[i] > array[i + 1]) {
                     isSorted = false;
-
                     temp = array[i + 1];
                     array[i + 1] = array[i];
                     array[i] = temp;
@@ -25,7 +24,6 @@ public class SortUtils {
     public static int[] arraySortShaker(int[] array) {
         boolean wasSorted = true;
         int left = 0, right = array.length - 1, temp;
-
         while (left < right && wasSorted){
             wasSorted = false;
             for (int i = left; i < right; i++) {

@@ -21,11 +21,11 @@ public class ArraysTasks {
         System.out.println(arrayMaxEven(container));
 
         System.out.println("Элементы, которые меньше среднего арифметического ");
-        arrayLessThanAvg(container);
+        System.out.println(Arrays.toString(arrayLessThanAvg(container)));
 
         System.out.println();
         System.out.println("Два наименьших элементов массива");
-        arrayTwoMin(container);
+        System.out.println(Arrays.toString(arrayTwoMin(container)));
 
         System.out.println("Сжатый массив с удаленными элементами в заданном интервале");
         System.out.println(Arrays.toString(arrayRemoveFromInterval(container, 20, 40)));
@@ -42,9 +42,7 @@ public class ArraysTasks {
      * @return возвращает сумму четных положительных элементов
      */
     public static int arraySumPositiveEven(int[] array) {
-
         int sum = 0;
-
         for (int i = 0; i < array.length; i++) {
 
             if (array[i] > 0 && array[i] % 2 == 0) {
@@ -61,9 +59,7 @@ public class ArraysTasks {
      * @return возвращает максимальное четное значение
      */
     public static int arrayMaxEven(int[] array) {
-
         int max = array[0];
-
         for (int a : array) {
             if (a > max && a % 2 == 0) {
                 max = a;
@@ -77,20 +73,28 @@ public class ArraysTasks {
      *
      * @param array массив
      */
-    public static void arrayLessThanAvg(int[] array) {
-
+    public static int[] arrayLessThanAvg(int[] array) {
+        int count = 0;
         int avg = 0;
-
-        for (int i = 0; i < array.length; i++) {      //в этом цикле считаем среднее арифметического
-            avg += array[i];
+        int j = 0;
+        for (int k : array) {      //в этом цикле считаем среднее арифметического
+            avg += k;
         }
         avg /= array.length;
-
-        for (int j : array) {              //в этом цикле записываем элементы, которые меньше среднего арифметического
-            if (j < avg) {
-                System.out.print(j + " ");
+        for (int i : array) {     //здесь считаем количество элементов, значение которых меньше среднего арифметического, для создания массива
+            if (i < avg){
+                count++;
             }
         }
+        int[] container = new int[count];
+        for (int i : array) {
+            if (i < avg) {
+                container[j] = i;
+                j++;
+            }
+        }
+        return container;
+
     }
 
     /**
@@ -98,12 +102,10 @@ public class ArraysTasks {
      *
      * @param array массив
      */
-    public static void arrayTwoMin(int[] array) {
+    public static int[] arrayTwoMin(int[] array) {
 
         int a = array[0];                            //назначил 2 переменные первым двум элементам массива
-
         int b = array[1];
-
         int tmp, c = 0;
 
         if (a < b) {                                 //если первый элемент меньше второго, меняю значения местами, чтобы потом не потерять при проверке первый
@@ -126,7 +128,7 @@ public class ArraysTasks {
             }
         }
 
-        System.out.println(a + " " + b);
+        return new int[]{a,b};
     }
 
     /**

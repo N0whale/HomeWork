@@ -21,13 +21,12 @@ public class loops_1_3 {
         if (b < 0) {
             System.out.println("Введите целое положительное число");
         } else
-            System.out.println(a + " ^ " + b + " = " + stepen(a, b));
+            System.out.println(a + " ^ " + b + " = " + pow(a, b));
     }
 
-    public static double stepen(double a, int b) {
+    public static double pow(double a, int b) {
         double c = 1;
-
-        for (int i = 1; i < b; i++) {
+        for (int i = 1; i <= b; i++) {
             c *= a;
         }
         return c;
