@@ -1,4 +1,4 @@
-package HomeWork5;
+package HomeWork5.WarAndPeaceCollections;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -23,17 +23,15 @@ public class WarCollections {
             map.merge(allWord, 1, Integer::sum);
         }
         List<Map.Entry<String, Integer>> valuesList = new ArrayList(map.entrySet());
-        Collections.sort(valuesList, new Comparator<Map.Entry<String, Integer>>() {
-            @Override
-            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-                return o2.getValue().compareTo(o1.getValue());
-            }
-        });
+        Collections.sort(valuesList, (o1, o2) -> o2.getValue().compareTo(o1.getValue()));
         ArrayList finalList = new ArrayList();
         for (int i = 0; i < number; i++) {
             finalList.add(valuesList.get(i));
         }
         return finalList;
+    }
+    public static String convertFileIntoString(String path) throws IOException {
+        return Files.readString(Path.of(path));
     }
 }
 
