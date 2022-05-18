@@ -24,6 +24,7 @@ public class WarAndPeaceSearchMain {
         } catch (IOException e){
             System.out.println("Файл не найден");
         }
+
         ISearchEngine regExSearch = new RegExSearch();
         try {
             String strLine = Files.readString(Path.of(path));
@@ -34,12 +35,11 @@ public class WarAndPeaceSearchMain {
         } catch (IOException e){
             System.out.println("Файл не найден");
         }
-        ISearchEngine punctuationNormalizer = new SearchEnginePunctuationNormalizer(regExSearch);
 
+        ISearchEngine punctuationNormalizer = new SearchEnginePunctuationNormalizer(regExSearch);
         try {
             String strLine = Files.readString(Path.of(path));
             System.out.println("Используя punctuationNormalizer");
-            System.out.println(normalizer(strLine));
             System.out.println("Количество слов 'война' " + punctuationNormalizer.search(strLine, "война"));
             System.out.println("Количество слов 'и' " + punctuationNormalizer.search(strLine, "и"));
             System.out.println("Количество слов 'мир' " + punctuationNormalizer.search(strLine, "мир"));

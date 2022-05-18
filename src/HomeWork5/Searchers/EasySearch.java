@@ -4,6 +4,12 @@ import HomeWork5.Inteface.ISearchEngine;
 
 public class EasySearch implements ISearchEngine {
 
+    /**
+     * поисковик, который ищет слова, у которых спереди и сзади пробелы
+     * @param text текст, в котором ищем
+     * @param word слово, которое ищем
+     * @return количество слов в тексте
+     */
     public long search(String text, String word) {
         long a = 0;
         int from = 0;

@@ -1,10 +1,5 @@
 package HomeWork5.runners;
-
-
-
 import java.io.*;
-
-
 import static HomeWork5.WarAndPeaceCollections.WarCollections.NumberOfWords;
 import static HomeWork5.WarAndPeaceCollections.WarCollections.SortedTopUsedWords;
 
@@ -18,7 +13,7 @@ public class WarAndPeaceMain {
         }
 
         try {
-            System.out.println(SortedTopUsedWords(50,path));
+            System.out.println(SortedTopUsedWords(10,path));
         } catch (IOException e){
             System.out.println("Файл не найден");
         }
